@@ -1,9 +1,13 @@
 use gtk::prelude::*;
-use gtk::{gdk, graphene, gsk, pango};
-use pangocairo;
+use gtk::{gdk, graphene, gsk};
 
 use libc;
 use log::debug;
+
+use pangocairo;
+use pangocairo::pango;
+use pangocairo::prelude::{FontExt, FontMapExt};
+
 use std::ffi::{CStr, CString};
 
 use bitflags::bitflags;
@@ -96,7 +100,7 @@ impl Callbacks {
             let font_map = pangocairo::FontMap::default();
             let context = font_map.create_context();
 
-            let font = context.load_font(&font_description).unwrap();
+            let font = context.load_font(font_description).unwrap();
 
             let layout = pango::Layout::new(&context);
 
@@ -137,7 +141,7 @@ impl Callbacks {
 
         let font_map = pangocairo::FontMap::default();
         let context = font_map.create_context();
-        context.set_font_description(Some(&font_description));
+        context.set_font_description(Some(font_description));
 
         let font = context.load_font(&font_description).unwrap();
 
