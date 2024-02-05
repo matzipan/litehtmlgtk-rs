@@ -1,0 +1,16 @@
+[package]
+name = "litehtmlgtk-rs"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+cmake = "0.1"
+bindgen = "0.59.1"
+cc = "1.0"
+cbindgen = "0.20.0"
+
+[dependencies]
+
+[lib]
+name = "litehtmlgtk_rs"
+path = "src/lib.rs"
