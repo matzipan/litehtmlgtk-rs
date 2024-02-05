@@ -1,5 +1,23 @@
 # litehtmlgtk-rs
 
+Render HTML content in-process using native GTK.
+
+This library uses litehtml to perform HTML layout and uses GTK Scene Graph Kit (GSK) to perform GPU-accelerated
+rendering.
+
+The most popular way to render HTML in the GTK world is to use `webkit2gtk`. But WebKit is designed for browsers. For
+example, WebKit it includes javascript. WebKit also has a multi-process architecture. For a browser this is a
+desireable functionality. But this means that interactions with the rendered content need to cross a process boundary.
+Furthermore, it is designed to take over the mouse events coming to the widget. This makes it difficult to implement
+cases like embedding multiple HTML views inside a GTK `ListView`.
+
+## Status
+
+This library can perform rendering of text inside an HTML page. More complex render nodes, such as images, are not
+implemented yet.
+
+Accessibility and text selection does not work.
+
 Make sure to initialize the git submodules:
 
 ```shell
