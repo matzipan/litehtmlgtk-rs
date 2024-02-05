@@ -20,13 +20,6 @@ implemented yet.
 
 Accessibility and text selection does not work.
 
-Make sure to initialize the git submodules:
-
-```shell
-git submodule init
-git submodule update
-```
-
 ## Build requirements
 
 `CLANG_LIB_PATH` needs to be set in the environment.

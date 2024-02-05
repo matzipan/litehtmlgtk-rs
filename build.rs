@@ -2,12 +2,23 @@ use cc;
 use cmake;
 
 use std::env;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
+use std::process::Command;
 
 fn main() {
     let clang_lib_path = env::var("CLANG_LIB_PATH").unwrap();
     let out_path = env::var("OUT_DIR").unwrap();
     let crate_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+    let cargo_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+
+    let current_dir = Path::new(&cargo_dir);
+    Command::new("git")
+        .arg("submodule")
+        .arg("update")
+        .arg("--init")
+        .current_dir(&current_dir)
+        .status()
+        .unwrap();
 
     let litehtml_callbacks_header_file = PathBuf::from(&out_path)
         .join("include")
