@@ -11,6 +11,8 @@ desireable functionality. But this means that interactions with the rendered con
 Furthermore, it is designed to take over the mouse events coming to the widget. This makes it difficult to implement
 cases like embedding multiple HTML views inside a GTK `ListView`.
 
+Check the `examples` folder for information on how to embed into a GTK widget.
+
 ## Status
 
 This library can perform rendering of text inside an HTML page. More complex render nodes, such as images, are not
